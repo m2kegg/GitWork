@@ -10,10 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GitWork">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".SignupActivity"
-            android:exported="false"
-            android:label="@string/title_activity_signup"
-            android:theme="@style/Theme.GitWork.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

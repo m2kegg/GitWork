@@ -23,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isValid()) Toast.makeText(getApplicationContext(), "ANCAP IS ****", Toast.LENGTH_SHORT).show();
+                if (isValid()) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                    startActivity(intent);
+                };
             }
         });
     }
@@ -37,19 +40,21 @@ public class MainActivity extends AppCompatActivity {
             email.setError("Enter a goddamn email, you piece of shit");
             return false;
         }
-        if (passw.getText().toString().equals("")){
+        else if (passw.getText().toString().equals("")){
             passw.setError("Enter a goddamn password, you piece of shit");
             return false;
         }
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
             email.setError("Enter a goddamn valid email, you piece of shit");
             return false;
         }
 
-        if (passw.getText().toString().length() <= MIN_LENGTH) {
+       else if (passw.getText().toString().length() <= MIN_LENGTH) {
             passw.setError("Enter a goddamn valid password, you piece of shit");
+            return false;
         }
+       else
         return true;
     }
 
